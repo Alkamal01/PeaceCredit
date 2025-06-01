@@ -40,8 +40,7 @@ export default function CurrencySettingsPage() {
     setSuccess('')
 
     try {
-      // Currency settings are automatically saved by the CurrencyProvider
-      // Locale settings are automatically saved by the TranslationsProvider
+
       setSuccess(t('currency_settings.success_message'))
     } catch (err) {
       setError(t('errors.generic'))
