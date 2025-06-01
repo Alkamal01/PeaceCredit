@@ -51,7 +51,7 @@ export async function POST(req: Request) {
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: message }
       ],
-      model: "mixtral-8x7b-32768",
+      model: "llama3-8b-8192",
       temperature: 0.7,
       max_tokens: 1024,
       top_p: 1,

@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:migrate-production": "tsx scripts/migrate-to-production.ts",
+    "db:backup-and-migrate": "tsx scripts/backup-and-migrate.ts",
+    "db:migrate-env": "tsx scripts/migrate-with-env.ts",
+    "db:migrate-neon": "tsx scripts/migrate-to-neon-production.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

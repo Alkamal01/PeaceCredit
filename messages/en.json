@@ -40,7 +40,8 @@
     "financial_profile": "Financial Profile",
     "cooperatives": "Cooperatives",
     "settings": "Settings",
-    "help_support": "Help & Support"
+    "help_support": "Help & Support",
+    "help": "Help"
   },
   "credit": {
     "title": "Credit Profile",
@@ -365,5 +366,92 @@
     "asset_portfolio": "Asset Portfolio",
     "verification_documents": "Verification Documents",
     "upload_documents": "Upload Documents"
+  },
+  "identity": {
+    "title": "Identity Management",
+    "subtitle": "Manage your digital identity and credentials",
+    "overview": "Identity Overview",
+    "personal_info": "Personal Information",
+    "verification_status": "Verification Status",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "not_set": "Not set",
+    "edit": "Edit",
+    "add": "Add",
+    "verified": "Verified",
+    "pending": "Pending",
+    "unverified": "Unverified",
+    "decentralized_identity": "Decentralized Identity",
+    "did": "DID",
+    "not_created": "Not created",
+    "creating": "Creating...",
+    "create_did": "Create DID",
+    "wallet_address": "Wallet Address",
+    "not_connected": "Not connected",
+    "connect_wallet": "Connect Wallet",
+    "credentials": "Credentials",
+    "no_credentials": "No credentials available yet",
+    "add_credential": "Add Credential",
+    "credential_types": {
+      "education": "Education Certificate",
+      "employment": "Employment Verification",
+      "identity": "Identity Document",
+      "financial": "Financial Record",
+      "health": "Health Record",
+      "professional": "Professional License"
+    },
+    "actions": {
+      "edit_profile": "Edit Profile",
+      "verify_identity": "Verify Identity",
+      "manage_credentials": "Manage Credentials"
+    },
+    "security": {
+      "title": "Security",
+      "two_factor": "Two-Factor Authentication",
+      "backup_codes": "Backup Codes",
+      "security_keys": "Security Keys"
+    },
+    "trust_score": {
+      "title": "Trust Score",
+      "score": "Score",
+      "level": "Level",
+      "factors": "Trust Factors"
+    }
+  },
+  "peacebot": {
+    "title": "PeaceBot",
+    "subtitle": "AI-Powered Peace & Finance Assistant",
+    "welcome_message": "Hello! I'm PeaceBot, your AI assistant for peace-building and community development. I can help you with credit improvement, cooperative management, financial literacy, and community building. How can I assist you today?",
+    "chat_title": "Chat with PeaceBot",
+    "status_online": "Online",
+    "thinking": "PeaceBot is thinking...",
+    "input_placeholder": "Ask me anything about peace-building, finance, or community development...",
+    "quick_questions": "Quick Questions",
+    "error_connection": "Sorry, I'm having trouble connecting right now. Please try again.",
+    "features": {
+      "secure": "Secure",
+      "multilingual": "Multilingual",
+      "ai_powered": "AI-Powered"
+    },
+    "suggested_questions": {
+      "credit_score": {
+        "title": "Credit Score",
+        "question": "How can I improve my credit score?"
+      },
+      "cooperatives": {
+        "title": "Cooperatives",
+        "question": "How do I join or create a cooperative?"
+      },
+      "financial_literacy": {
+        "title": "Financial Literacy",
+        "question": "What are the basics of financial management?"
+      },
+      "peace_building": {
+        "title": "Peace Building",
+        "question": "How can I contribute to community peace-building?"
+      }
+    }
   }
 } 

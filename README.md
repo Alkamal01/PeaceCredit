@@ -2,7 +2,7 @@
 
 **Empowering Financial Inclusion Through AI-Powered Community-Based Credit Scoring for Conflict-Affected Regions**
 
-[![Demo](https://img.shields.io/badge/🎥_Live_Demo-Watch_Now-blue?style=for-the-badge)](YOUR_DEMO_LINK_HERE)
+[![Demo](https://img.shields.io/badge/🎥_Live_Demo-Watch_Now-blue?style=for-the-badge)](https://www.loom.com/share/e9e2db0fe2df4cc689b875db2a3f27f9?sid=bd7c0ec6-75e4-43dd-b775-df042e0776bf)
 [![Pitch Deck](https://img.shields.io/badge/📊_Pitch_Deck-View_Slides-green?style=for-the-badge)](YOUR_PITCH_DECK_LINK_HERE)
 [![Live App](https://img.shields.io/badge/🚀_Try_App-Live_Version-orange?style=for-the-badge)](https://peace-credit.vercel.app/)
 
