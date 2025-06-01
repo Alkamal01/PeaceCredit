@@ -31,6 +31,7 @@ import {
   Home
 } from "lucide-react"
 import { useCurrency } from "@/contexts/CurrencyContext"
+import { useTranslations } from "@/contexts/TranslationsContext"
 
 interface FinancialData {
   // Basic Financial Info
@@ -121,8 +122,9 @@ export default function FinancialProfilePage() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
-  // Use currency context
+  // Use currency context and translations
   const { formatCurrency, getCurrencySymbol, isLoading: currencyLoading } = useCurrency()
+  const { t, isLoading: translationsLoading } = useTranslations()
 
   // Calculate completion percentage
   const calculateCompletion = () => {
@@ -270,10 +272,10 @@ export default function FinancialProfilePage() {
         const baseScore = 300 + (completion * 3.5) // Score between 300-650 based on completion
         setCreditScore(Math.round(baseScore))
       } else {
-        setError(data.error || 'Failed to save profile')
+        setError(data.error || t('errors.generic'))
       }
     } catch (error) {
-      setError('An error occurred while saving your profile')
+      setError(t('errors.generic'))
     } finally {
       setLoading(false)
     }
@@ -281,13 +283,13 @@ export default function FinancialProfilePage() {
 
   const completion = calculateCompletion()
 
-  if (fetchingProfile || currencyLoading) {
+  if (fetchingProfile || currencyLoading || translationsLoading) {
     return (
       <div className="container mx-auto p-6">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <RefreshCw className="h-8 w-8 animate-spin mx-auto mb-4" />
-            <p>Loading your financial profile...</p>
+            <p>{t('common.loading')}</p>
           </div>
         </div>
       </div>
@@ -299,18 +301,18 @@ export default function FinancialProfilePage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Financial Profile</h1>
+          <h1 className="text-3xl font-bold">{t('financial_profile.title')}</h1>
           <p className="text-muted-foreground">
             {hasExistingProfile 
-              ? 'Manage your financial information to improve your credit score'
-              : 'Complete your financial profile to get your credit score'
+              ? t('financial_profile.subtitle_existing')
+              : t('financial_profile.subtitle_new')
             }
           </p>
         </div>
         {hasExistingProfile && !isEditing && (
           <Button onClick={() => setIsEditing(true)} variant="outline">
             <Edit className="h-4 w-4 mr-2" />
-            Edit Profile
+            {t('common.edit')} {t('common.profile')}
           </Button>
         )}
       </div>
@@ -326,10 +328,10 @@ export default function FinancialProfilePage() {
                 ) : (
                   <AlertCircle className="h-5 w-5 text-orange-500" />
                 )}
-                Profile Completion
+                {t('financial_profile.completion')}
               </CardTitle>
               <CardDescription>
-                {completion}% of your financial profile is complete
+                {t('financial_profile.completion_description', { percentage: completion })}
               </CardDescription>
             </div>
             <Badge variant={completion === 100 ? "default" : "secondary"}>
@@ -341,8 +343,8 @@ export default function FinancialProfilePage() {
           <Progress value={completion} className="w-full" />
           <p className="text-sm text-muted-foreground mt-2">
             {completion < 100 
-              ? `Complete ${100 - completion}% more to unlock your full credit potential`
-              : 'Your profile is complete! Keep it updated for accurate credit scoring.'
+              ? t('financial_profile.completion_incomplete', { remaining: 100 - completion })
+              : t('financial_profile.completion_complete')
             }
           </p>
         </CardContent>
@@ -375,14 +377,14 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <DollarSign className="h-5 w-5" />
-                Income Information
+                {t('financial_profile.income_information')}
               </CardTitle>
-              <CardDescription>Tell us about your income sources</CardDescription>
+              <CardDescription>{t('financial_profile.income_description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="monthlyIncome">Monthly Income ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="monthlyIncome">{t('financial_profile.monthly_income')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="monthlyIncome"
                     type="number"
@@ -392,47 +394,48 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="incomeSource">Primary Income Source</Label>
+                  <Label htmlFor="incomeSource">{t('financial_profile.income_source')}</Label>
                   <Select value={formData.incomeSource} onValueChange={(value) => handleInputChange('incomeSource', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select income source" />
+                      <SelectValue placeholder={t('financial_profile.income_source')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="employment">Employment</SelectItem>
-                      <SelectItem value="business">Business</SelectItem>
-                      <SelectItem value="farming">Farming</SelectItem>
-                      <SelectItem value="trading">Trading</SelectItem>
-                      <SelectItem value="freelance">Freelance</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="salary">{t('income_sources.salary')}</SelectItem>
+                      <SelectItem value="business">{t('income_sources.business')}</SelectItem>
+                      <SelectItem value="farming">{t('income_sources.farming')}</SelectItem>
+                      <SelectItem value="trading">{t('income_sources.trading')}</SelectItem>
+                      <SelectItem value="freelance">{t('income_sources.freelance')}</SelectItem>
+                      <SelectItem value="other">{t('income_sources.other')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="bankAccount">Bank Account Status</Label>
+                  <Label htmlFor="bankAccount">{t('financial_profile.bank_account')}</Label>
                   <Select value={formData.bankAccount} onValueChange={(value) => handleInputChange('bankAccount', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select bank account status" />
+                      <SelectValue placeholder={t('financial_profile.bank_account')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="active">Active Bank Account</SelectItem>
-                      <SelectItem value="mobile">Mobile Money Only</SelectItem>
-                      <SelectItem value="none">No Bank Account</SelectItem>
+                      <SelectItem value="active">{t('bank_account_status.active')}</SelectItem>
+                      <SelectItem value="inactive">{t('bank_account_status.inactive')}</SelectItem>
+                      <SelectItem value="pending">{t('bank_account_status.pending')}</SelectItem>
+                      <SelectItem value="closed">{t('bank_account_status.closed')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="existingDebts">Existing Debts</Label>
+                  <Label htmlFor="existingDebts">{t('financial_profile.existing_debts')}</Label>
                   <Select value={formData.existingDebts} onValueChange={(value) => handleInputChange('existingDebts', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select debt status" />
+                      <SelectValue placeholder={t('financial_profile.existing_debts')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">No Debts</SelectItem>
-                      <SelectItem value="low">Low Debt</SelectItem>
-                      <SelectItem value="moderate">Moderate Debt</SelectItem>
-                      <SelectItem value="high">High Debt</SelectItem>
+                      <SelectItem value="none">{t('debt_status.none')}</SelectItem>
+                      <SelectItem value="low">{t('debt_status.low')}</SelectItem>
+                      <SelectItem value="moderate">{t('debt_status.moderate')}</SelectItem>
+                      <SelectItem value="high">{t('debt_status.high')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -445,14 +448,14 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Home className="h-5 w-5" />
-                Monthly Expenses
+                {t('financial_profile.monthly_expenses')}
               </CardTitle>
-              <CardDescription>Break down your monthly spending ({getCurrencySymbol()})</CardDescription>
+              <CardDescription>{t('financial_profile.expenses_description')} ({getCurrencySymbol()})</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="housingExpense">Housing</Label>
+                  <Label htmlFor="housingExpense">{t('financial_profile.housing')}</Label>
                   <Input
                     id="housingExpense"
                     type="number"
@@ -462,7 +465,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="foodExpense">Food</Label>
+                  <Label htmlFor="foodExpense">{t('financial_profile.food')}</Label>
                   <Input
                     id="foodExpense"
                     type="number"
@@ -472,7 +475,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="transportationExpense">Transportation</Label>
+                  <Label htmlFor="transportationExpense">{t('financial_profile.transportation')}</Label>
                   <Input
                     id="transportationExpense"
                     type="number"
@@ -484,7 +487,7 @@ export default function FinancialProfilePage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="utilitiesExpense">Utilities</Label>
+                  <Label htmlFor="utilitiesExpense">{t('financial_profile.utilities')}</Label>
                   <Input
                     id="utilitiesExpense"
                     type="number"
@@ -494,7 +497,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="healthcareExpense">Healthcare</Label>
+                  <Label htmlFor="healthcareExpense">{t('financial_profile.healthcare')}</Label>
                   <Input
                     id="healthcareExpense"
                     type="number"
@@ -504,7 +507,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="educationExpense">Education</Label>
+                  <Label htmlFor="educationExpense">{t('financial_profile.education')}</Label>
                   <Input
                     id="educationExpense"
                     type="number"
@@ -515,7 +518,7 @@ export default function FinancialProfilePage() {
                 </div>
               </div>
               <div>
-                <Label htmlFor="otherExpenses">Other Expenses</Label>
+                <Label htmlFor="otherExpenses">{t('financial_profile.other')}</Label>
                 <Input
                   id="otherExpenses"
                   type="number"
@@ -532,25 +535,25 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Building2 className="h-5 w-5" />
-                Business & Assets
+                {t('financial_profile.business_assets')}
               </CardTitle>
-              <CardDescription>Information about your business and assets</CardDescription>
+              <CardDescription>{t('financial_profile.business_description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="businessType">Business Type</Label>
+                  <Label htmlFor="businessType">{t('financial_profile.business_type')}</Label>
                   <Select value={formData.businessType} onValueChange={(value) => handleInputChange('businessType', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select business type" />
+                      <SelectValue placeholder={t('financial_profile.business_type')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">No Business</SelectItem>
-                      <SelectItem value="retail">Retail</SelectItem>
-                      <SelectItem value="agriculture">Agriculture</SelectItem>
-                      <SelectItem value="services">Services</SelectItem>
-                      <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="retail">{t('business_types.retail')}</SelectItem>
+                      <SelectItem value="agriculture">{t('business_types.agriculture')}</SelectItem>
+                      <SelectItem value="services">{t('business_types.services')}</SelectItem>
+                      <SelectItem value="manufacturing">{t('business_types.manufacturing')}</SelectItem>
+                      <SelectItem value="technology">{t('business_types.technology')}</SelectItem>
+                      <SelectItem value="other">{t('business_types.other')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -560,7 +563,7 @@ export default function FinancialProfilePage() {
                     checked={formData.businessRegistration}
                     onCheckedChange={(checked) => handleInputChange('businessRegistration', checked as boolean)}
                   />
-                  <Label htmlFor="businessRegistration">Business is registered</Label>
+                  <Label htmlFor="businessRegistration">{t('financial_profile.business_registered')}</Label>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -569,12 +572,12 @@ export default function FinancialProfilePage() {
                   checked={formData.farmOwnership}
                   onCheckedChange={(checked) => handleInputChange('farmOwnership', checked as boolean)}
                 />
-                <Label htmlFor="farmOwnership">I own farmland</Label>
+                <Label htmlFor="farmOwnership">{t('financial_profile.farm_ownership')}</Label>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="propertyValue">Property Value ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="propertyValue">{t('financial_profile.property_value')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="propertyValue"
                     type="number"
@@ -584,7 +587,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="vehiclesValue">Vehicles Value ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="vehiclesValue">{t('financial_profile.vehicles_value')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="vehiclesValue"
                     type="number"
@@ -594,7 +597,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="savingsValue">Savings ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="savingsValue">{t('financial_profile.savings')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="savingsValue"
                     type="number"
@@ -607,7 +610,7 @@ export default function FinancialProfilePage() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="livestockValue">Livestock Value ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="livestockValue">{t('financial_profile.livestock_value')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="livestockValue"
                     type="number"
@@ -617,7 +620,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="equipmentValue">Equipment Value ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="equipmentValue">{t('financial_profile.equipment_value')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="equipmentValue"
                     type="number"
@@ -627,7 +630,7 @@ export default function FinancialProfilePage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="otherAssetsValue">Other Assets ({getCurrencySymbol()})</Label>
+                  <Label htmlFor="otherAssetsValue">{t('financial_profile.other_assets')} ({getCurrencySymbol()})</Label>
                   <Input
                     id="otherAssetsValue"
                     type="number"
@@ -645,16 +648,16 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="h-5 w-5" />
-                Financial Patterns
+                {t('financial_profile.financial_patterns')}
               </CardTitle>
-              <CardDescription>Help us understand your financial behavior</CardDescription>
+              <CardDescription>{t('financial_profile.patterns_description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="spendingPatterns">Spending Patterns</Label>
+                <Label htmlFor="spendingPatterns">{t('financial_profile.spending_patterns')}</Label>
                 <Textarea
                   id="spendingPatterns"
-                  placeholder="Describe your typical spending habits..."
+                  placeholder={t('financial_profile.spending_patterns_placeholder')}
                   value={formData.spendingPatterns}
                   onChange={(e) => handleInputChange('spendingPatterns', e.target.value)}
                 />
@@ -665,13 +668,13 @@ export default function FinancialProfilePage() {
                   checked={formData.seasonalIncome}
                   onCheckedChange={(checked) => handleInputChange('seasonalIncome', checked as boolean)}
                 />
-                <Label htmlFor="seasonalIncome">My income varies by season</Label>
+                <Label htmlFor="seasonalIncome">{t('financial_profile.seasonal_income')}</Label>
               </div>
               <div>
-                <Label htmlFor="incomeVariation">Income Variation Details</Label>
+                <Label htmlFor="incomeVariation">{t('financial_profile.income_variation')}</Label>
                 <Textarea
                   id="incomeVariation"
-                  placeholder="Describe how your income changes throughout the year..."
+                  placeholder={t('financial_profile.income_variation_placeholder')}
                   value={formData.incomeVariation}
                   onChange={(e) => handleInputChange('incomeVariation', e.target.value)}
                 />
@@ -684,32 +687,30 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="h-5 w-5" />
-                Community Involvement
+                {t('financial_profile.community_involvement')}
               </CardTitle>
-              <CardDescription>Your role in the community affects your credit profile</CardDescription>
+              <CardDescription>{t('financial_profile.community_description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="communityRole">Community Role</Label>
+                <Label htmlFor="communityRole">{t('financial_profile.community_role')}</Label>
                 <Select value={formData.communityRole} onValueChange={(value) => handleInputChange('communityRole', value)}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select your community role" />
+                    <SelectValue placeholder={t('financial_profile.community_role')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="member">Community Member</SelectItem>
-                    <SelectItem value="leader">Community Leader</SelectItem>
-                    <SelectItem value="elder">Community Elder</SelectItem>
-                    <SelectItem value="business">Business Leader</SelectItem>
-                    <SelectItem value="religious">Religious Leader</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="member">{t('community_roles.member')}</SelectItem>
+                    <SelectItem value="leader">{t('community_roles.leader')}</SelectItem>
+                    <SelectItem value="treasurer">{t('community_roles.treasurer')}</SelectItem>
+                    <SelectItem value="secretary">{t('community_roles.secretary')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div>
-                <Label htmlFor="socialConnections">Social Connections</Label>
+                <Label htmlFor="socialConnections">{t('financial_profile.social_connections')}</Label>
                 <Textarea
                   id="socialConnections"
-                  placeholder="Describe your social networks and community connections..."
+                  placeholder={t('financial_profile.social_connections_placeholder')}
                   value={formData.socialConnections}
                   onChange={(e) => handleInputChange('socialConnections', e.target.value)}
                 />
@@ -728,12 +729,12 @@ export default function FinancialProfilePage() {
               {loading ? (
                 <>
                   <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-                  {hasExistingProfile ? 'Updating Profile...' : 'Saving Profile...'}
+                  {hasExistingProfile ? t('financial_profile.updating') : t('financial_profile.saving')}
                 </>
               ) : (
                 <>
                   <Save className="h-4 w-4 mr-2" />
-                  {hasExistingProfile ? 'Update Profile' : 'Save Profile & Calculate Score'}
+                  {hasExistingProfile ? t('financial_profile.update_profile') : t('financial_profile.save_profile')}
                 </>
               )}
             </Button>
@@ -754,21 +755,21 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <DollarSign className="h-5 w-5" />
-                Income
+                {t('financial_profile.income')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Monthly Income:</span>
+                  <span className="text-sm text-muted-foreground">{t('financial_profile.monthly_income')}:</span>
                   <span className="font-medium">{formatCurrency(formData.monthlyIncome)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Source:</span>
+                  <span className="text-sm text-muted-foreground">{t('financial_profile.source')}:</span>
                   <span className="font-medium capitalize">{formData.incomeSource}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Bank Account:</span>
+                  <span className="text-sm text-muted-foreground">{t('financial_profile.bank_account')}:</span>
                   <span className="font-medium capitalize">{formData.bankAccount}</span>
                 </div>
               </div>
@@ -780,26 +781,26 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Home className="h-5 w-5" />
-                Expenses
+                {t('financial_profile.expenses')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {formData.monthlyExpenses.housing && (
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Housing:</span>
+                    <span className="text-sm text-muted-foreground">{t('financial_profile.housing')}:</span>
                     <span className="font-medium">{formatCurrency(formData.monthlyExpenses.housing)}</span>
                   </div>
                 )}
                 {formData.monthlyExpenses.food && (
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Food:</span>
+                    <span className="text-sm text-muted-foreground">{t('financial_profile.food')}:</span>
                     <span className="font-medium">{formatCurrency(formData.monthlyExpenses.food)}</span>
                   </div>
                 )}
                 {formData.monthlyExpenses.transportation && (
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Transport:</span>
+                    <span className="text-sm text-muted-foreground">{t('financial_profile.transportation')}:</span>
                     <span className="font-medium">{formatCurrency(formData.monthlyExpenses.transportation)}</span>
                   </div>
                 )}
@@ -812,26 +813,26 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Building2 className="h-5 w-5" />
-                Assets
+                {t('financial_profile.assets')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {formData.assets.property && (
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Property:</span>
+                    <span className="text-sm text-muted-foreground">{t('financial_profile.property_value')}:</span>
                     <span className="font-medium">{formatCurrency(formData.assets.property)}</span>
                   </div>
                 )}
                 {formData.assets.savings && (
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Savings:</span>
+                    <span className="text-sm text-muted-foreground">{t('financial_profile.savings')}:</span>
                     <span className="font-medium">{formatCurrency(formData.assets.savings)}</span>
                   </div>
                 )}
                 {formData.businessType && formData.businessType !== 'none' && (
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Business:</span>
+                    <span className="text-sm text-muted-foreground">{t('dashboard.business')}:</span>
                     <span className="font-medium capitalize">{formData.businessType}</span>
                   </div>
                 )}
@@ -852,18 +853,18 @@ export default function FinancialProfilePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-green-700">
                 <CheckCircle className="h-5 w-5" />
-                Your Credit Score
+                {t('financial_profile.your_credit_score')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-center">
                 <div className="text-4xl font-bold text-green-600 mb-2">{creditScore}</div>
                 <div className="text-sm text-green-600 mb-4">
-                  {creditScore >= 700 ? 'Excellent' : creditScore >= 600 ? 'Good' : 'Fair'} Credit Score
+                  {creditScore >= 700 ? t('dashboard.excellent') : creditScore >= 600 ? t('dashboard.good') : t('dashboard.fair')} {t('dashboard.credit_score')}
                 </div>
                 <Progress value={(creditScore / 850) * 100} className="w-full mb-4" />
                 <p className="text-sm text-muted-foreground">
-                  Your score is based on {completion}% profile completion. Complete more fields to improve accuracy.
+                  {t('financial_profile.score_based_on', { completion })}
                 </p>
               </div>
             </CardContent>
