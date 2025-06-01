@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String            @id @default(cuid())
+  email            String            @unique
+  name             String?
+  phone            String
+  password         String
+  location         String?
+  did              String?           @unique
+  walletAddress    String?           @unique
+  currency         String?           @default("USD")
+  locale           String?           @default("en-US")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  credentials      Credential[]
+  documents        Document[]
+  proposals        Proposal[]
+  tasks            Task[]
+  trustScore       TrustScore?
+  cooperatives     Cooperative[]     @relation("CooperativeToUser")
+  financialProfile FinancialProfile?
+}
+
+model FinancialProfile {
+  id                    String   @id @default(cuid())
+  userId                String   @unique
+  user                  User     @relation(fields: [userId], references: [id])
+  
+  // Basic Financial Info
+  monthlyIncome         Float?
+  incomeSource          String?
+  bankAccount           String?
+  existingDebts         String?
+  
+  // Monthly Expenses
+  housingExpense        Float?   @default(0)
+  foodExpense           Float?   @default(0)
+  transportationExpense Float?   @default(0)
+  utilitiesExpense      Float?   @default(0)
+  healthcareExpense     Float?   @default(0)
+  educationExpense      Float?   @default(0)
+  otherExpenses         Float?   @default(0)
+  
+  // Business/Professional Info
+  businessType          String?
+  businessRegistration  Boolean  @default(false)
+  farmOwnership         Boolean  @default(false)
+  
+  // Assets (estimated values)
+  propertyValue         Float?   @default(0)
+  vehiclesValue         Float?   @default(0)
+  livestockValue        Float?   @default(0)
+  equipmentValue        Float?   @default(0)
+  savingsValue          Float?   @default(0)
+  otherAssetsValue      Float?   @default(0)
+  
+  // Advanced Analytics
+  spendingPatterns      String?
+  seasonalIncome        Boolean  @default(false)
+  incomeVariation       String?
+  communityRole         String?
+  socialConnections     String?
+  
+  // Document references
+  businessDocuments     String[] // File paths/URLs
+  farmDocuments         String[] // File paths/URLs
+  tradeLicenses         String[] // File paths/URLs
+  salesRecords          String[] // File paths/URLs
+  
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model TrustScore {
+  id                     String   @id @default(cuid())
+  userId                 String   @unique
+  communityParticipation Float    @default(0)
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  paymentHistory         Float    @default(0)
+  score                  Float    @default(0)
+  
+  // Enhanced credit factors
+  financialStability     Float    @default(0)
+  communityTrust         Float    @default(0)
+  economicActivity       Float    @default(0)
+  identityVerification   Float    @default(0)
+  
+  user                   User     @relation(fields: [userId], references: [id])
+}
+
+model Credential {
+  id        String   @id @default(cuid())
+  type      String
+  status    String   @default("pending")
+  date      DateTime @default(now())
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  status    String   @default("pending")
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Cooperative {
+  id          String     @id @default(cuid())
+  name        String
+  balancePool Float      @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  proposals   Proposal[]
+  tasks       Task[]
+  users       User[]     @relation("CooperativeToUser")
+}
+
+model Task {
+  id            String      @id @default(cuid())
+  title         String
+  description   String?
+  status        String      @default("pending")
+  dueDate       DateTime
+  cooperativeId String
+  userId        String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  cooperative   Cooperative @relation(fields: [cooperativeId], references: [id])
+  user          User        @relation(fields: [userId], references: [id])
+}
+
+model Proposal {
+  id            String      @id @default(cuid())
+  title         String
+  description   String?
+  status        String      @default("pending")
+  votes         Int         @default(0)
+  cooperativeId String
+  userId        String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  cooperative   Cooperative @relation(fields: [cooperativeId], references: [id])
+  user          User        @relation(fields: [userId], references: [id])
+}

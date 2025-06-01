@@ -1,0 +1,147 @@
+{
+  "common": {
+    "loading": "Inapakia...",
+    "save": "Hifadhi",
+    "cancel": "Ghairi",
+    "edit": "Hariri",
+    "delete": "Futa",
+    "confirm": "Thibitisha",
+    "yes": "Ndiyo",
+    "no": "Hapana",
+    "close": "Funga",
+    "back": "Rudi",
+    "next": "Ifuatayo",
+    "previous": "Iliyotangulia",
+    "submit": "Wasilisha",
+    "search": "Tafuta",
+    "filter": "Chuja",
+    "sort": "Panga",
+    "view": "Ona",
+    "download": "Pakua",
+    "upload": "Pakia",
+    "refresh": "Onyesha upya",
+    "logout": "Ondoka",
+    "login": "Ingia",
+    "register": "Jisajili",
+    "email": "Barua pepe",
+    "password": "Nenosiri",
+    "name": "Jina",
+    "phone": "Simu",
+    "location": "Mahali",
+    "currency": "Sarafu",
+    "language": "Lugha"
+  },
+  "navigation": {
+    "dashboard": "Dashibodi",
+    "my_credit": "Mkopo Wangu",
+    "financial_profile": "Wasifu wa Kifedha",
+    "cooperatives": "Ushirika",
+    "settings": "Mipangilio",
+    "help_support": "Msaada na Uongozi"
+  },
+  "dashboard": {
+    "title": "Muhtasari wa Dashibodi",
+    "monthly_income": "Mapato ya kila mwezi",
+    "net_monthly_income": "Mapato halisi ya kila mwezi",
+    "total_assets": "Jumla ya mali",
+    "business": "Biashara",
+    "credit_score": "Alama za mkopo",
+    "credit_factors": "Mambo yanayoathiri mkopo",
+    "recent_changes": "Mabadiliko ya hivi karibuni",
+    "cooperative_stats": "Takwimu za ushirika",
+    "financial_profile": "Wasifu wa kifedha",
+    "complete_profile": "Kamilisha Wasifu wa Kifedha",
+    "recommendations": "Mapendekezo ya kuboresha alama zako za mkopo:",
+    "after_expenses": "Baada ya gharama",
+    "combined_value": "Thamani ya pamoja",
+    "registered": "Imesajiliwa",
+    "not_registered": "Haijasajiliwa",
+    "excellent": "Bora sana",
+    "good": "Nzuri",
+    "fair": "Wastani",
+    "poor": "Mbaya",
+    "total_members": "Jumla ya wanachama",
+    "average_score": "Wastani wa alama",
+    "balance_pool": "Mfuko wa salio",
+    "not_in_cooperative": "Bado hujaungi ushirika wowote",
+    "profile_complete": "Wasifu wako wa kifedha umekamilika",
+    "profile_incomplete": "Kamilisha wasifu wako wa kifedha ili kuboresha alama za mkopo"
+  },
+  "financial_profile": {
+    "title": "Wasifu wa Kifedha",
+    "monthly_income": "Mapato ya kila mwezi",
+    "source": "Chanzo",
+    "total_expenses": "Jumla ya gharama",
+    "total_assets": "Jumla ya mali",
+    "business_type": "Aina ya biashara",
+    "business_registration": "Usajili wa biashara",
+    "bank_account": "Akaunti ya benki",
+    "debt_status": "Hali ya deni"
+  },
+  "currency_settings": {
+    "title": "Mipangilio ya Sarafu na Lugha",
+    "current_currency": "Sarafu ya sasa",
+    "current_language": "Lugha ya sasa",
+    "select_currency": "Chagua Sarafu",
+    "select_language": "Chagua Lugha",
+    "preview": "Onyesho la awali",
+    "currency_format": "Muundo wa sarafu",
+    "number_format": "Muundo wa nambari",
+    "date_format": "Muundo wa tarehe",
+    "important_note": "Muhimu: Mipangilio hii inaathiri jinsi data ya kifedha inavyoonyeshwa katika programu yote."
+  },
+  "settings": {
+    "title": "Mipangilio",
+    "profile": "Wasifu",
+    "security": "Usalama",
+    "notifications": "Arifa",
+    "privacy": "Faragha"
+  },
+  "income_sources": {
+    "salary": "Mshahara",
+    "business": "Biashara",
+    "freelance": "Kazi huru",
+    "investments": "Uwekezaji",
+    "other": "Nyingine"
+  },
+  "bank_account_status": {
+    "active": "Hai",
+    "inactive": "Haifanyi kazi",
+    "pending": "Inasubiri",
+    "closed": "Imefungwa"
+  },
+  "debt_status": {
+    "none": "Hakuna deni",
+    "low": "Deni dogo",
+    "moderate": "Deni la wastani",
+    "high": "Deni kubwa"
+  },
+  "business_types": {
+    "retail": "Rejareja",
+    "agriculture": "Kilimo",
+    "services": "Huduma",
+    "manufacturing": "Utengenezaji",
+    "technology": "Teknolojia",
+    "other": "Nyingine"
+  },
+  "community_roles": {
+    "member": "Mwanachama",
+    "leader": "Kiongozi",
+    "treasurer": "Mhasibu",
+    "secretary": "Katibu"
+  },
+  "errors": {
+    "generic": "Hitilafu imetokea",
+    "network": "Hitilafu ya mtandao",
+    "validation": "Hitilafu ya uthibitishaji",
+    "unauthorized": "Ufikiaji haujaruhusiwa",
+    "not_found": "Haijapatikana",
+    "server_error": "Hitilafu ya seva"
+  },
+  "success": {
+    "saved": "Imehifadhiwa kwa mafanikio",
+    "updated": "Imesasishwa kwa mafanikio",
+    "deleted": "Imefutwa kwa mafanikio",
+    "created": "Imeundwa kwa mafanikio"
+  }
+} 

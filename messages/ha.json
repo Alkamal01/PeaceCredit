@@ -1,0 +1,147 @@
+{
+  "common": {
+    "loading": "Ana lodi...",
+    "save": "Ajiye",
+    "cancel": "Soke",
+    "edit": "Gyara",
+    "delete": "Share",
+    "confirm": "Tabbatar",
+    "yes": "Eh",
+    "no": "A'a",
+    "close": "Rufe",
+    "back": "Koma baya",
+    "next": "Na gaba",
+    "previous": "Na baya",
+    "submit": "Aika",
+    "search": "Nema",
+    "filter": "Tace",
+    "sort": "Jera",
+    "view": "Duba",
+    "download": "Sauke",
+    "upload": "Loda",
+    "refresh": "Sabunta",
+    "logout": "Fita",
+    "login": "Shiga",
+    "register": "Yi rajista",
+    "email": "Imel",
+    "password": "Kalmar sirri",
+    "name": "Suna",
+    "phone": "Waya",
+    "location": "Wuri",
+    "currency": "Kudin kasa",
+    "language": "Harshe"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "my_credit": "Bashin Na",
+    "financial_profile": "Bayanan Kudi",
+    "cooperatives": "Kungiyoyin Hadin Gwiwa",
+    "settings": "Saitunan",
+    "help_support": "Taimako da Goyon Baya"
+  },
+  "dashboard": {
+    "title": "Bayanin Dashboard",
+    "monthly_income": "Kudin shiga na wata",
+    "net_monthly_income": "Ainihin kudin shiga na wata",
+    "total_assets": "Jimillar dukiya",
+    "business": "Kasuwanci",
+    "credit_score": "Maki na bashi",
+    "credit_factors": "Abubuwan da ke shafar bashi",
+    "recent_changes": "Sauye-sauyen kwanan nan",
+    "cooperative_stats": "Kididdigan kungiyar hadin gwiwa",
+    "financial_profile": "Bayanan kudi",
+    "complete_profile": "Kammala Bayanan Kudi",
+    "recommendations": "Shawarwari don inganta maki na bashi:",
+    "after_expenses": "Bayan kashe kudi",
+    "combined_value": "Darajar hada",
+    "registered": "An yi rajista",
+    "not_registered": "Ba a yi rajista ba",
+    "excellent": "Kyakkyawa sosai",
+    "good": "Mai kyau",
+    "fair": "Matsakaici",
+    "poor": "Mara kyau",
+    "total_members": "Jimillar mambobi",
+    "average_score": "Matsakaicin maki",
+    "balance_pool": "Tafkin ma'auni",
+    "not_in_cooperative": "Har yanzu ba memba na kungiyar hadin gwiwa ba",
+    "profile_complete": "Bayanan ku na kudi sun cika",
+    "profile_incomplete": "Kammala bayanan ku na kudi don inganta maki na bashi"
+  },
+  "financial_profile": {
+    "title": "Bayanan Kudi",
+    "monthly_income": "Kudin shiga na wata",
+    "source": "Tushe",
+    "total_expenses": "Jimillar kashe kudi",
+    "total_assets": "Jimillar dukiya",
+    "business_type": "Nau'in kasuwanci",
+    "business_registration": "Rajistar kasuwanci",
+    "bank_account": "Asusun banki",
+    "debt_status": "Matsayin bashi"
+  },
+  "currency_settings": {
+    "title": "Saitunan Kudi da Harshe",
+    "current_currency": "Kudin yanzu",
+    "current_language": "Harshen yanzu",
+    "select_currency": "Zaɓi Kudi",
+    "select_language": "Zaɓi Harshe",
+    "preview": "Duba kafin aika",
+    "currency_format": "Tsarin kudi",
+    "number_format": "Tsarin lamba",
+    "date_format": "Tsarin kwanan wata",
+    "important_note": "Muhimmi: Waɗannan saitunan suna shafar yadda ake nuna bayanan kudi a cikin aikace-aikacen."
+  },
+  "settings": {
+    "title": "Saitunan",
+    "profile": "Bayani",
+    "security": "Tsaro",
+    "notifications": "Sanarwa",
+    "privacy": "Sirri"
+  },
+  "income_sources": {
+    "salary": "Albashi",
+    "business": "Kasuwanci",
+    "freelance": "Aikin kai",
+    "investments": "Saka hannun jari",
+    "other": "Wani"
+  },
+  "bank_account_status": {
+    "active": "Mai aiki",
+    "inactive": "Ba ya aiki",
+    "pending": "Ana jira",
+    "closed": "An rufe"
+  },
+  "debt_status": {
+    "none": "Babu bashi",
+    "low": "Karamin bashi",
+    "moderate": "Matsakaicin bashi",
+    "high": "Babban bashi"
+  },
+  "business_types": {
+    "retail": "Sayar da kayayyaki",
+    "agriculture": "Noma",
+    "services": "Hidima",
+    "manufacturing": "Masana'anta",
+    "technology": "Fasaha",
+    "other": "Wani"
+  },
+  "community_roles": {
+    "member": "Memba",
+    "leader": "Jagora",
+    "treasurer": "Ma'ajin kudi",
+    "secretary": "Sakatare"
+  },
+  "errors": {
+    "generic": "Kuskure ya faru",
+    "network": "Kuskuren hanyar sadarwa",
+    "validation": "Kuskuren tabbatarwa",
+    "unauthorized": "Ba a ba da izini ba",
+    "not_found": "Ba a samu ba",
+    "server_error": "Kuskuren sabar"
+  },
+  "success": {
+    "saved": "An ajiye da nasara",
+    "updated": "An sabunta da nasara",
+    "deleted": "An share da nasara",
+    "created": "An kirkira da nasara"
+  }
+} 
