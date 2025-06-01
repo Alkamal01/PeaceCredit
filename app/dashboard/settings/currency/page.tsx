@@ -138,7 +138,7 @@ export default function CurrencySettingsPage() {
               <Label htmlFor="currency">{t('common.currency')}</Label>
               <Select
                 value={currencySettings.currency}
-                onValueChange={(value) => updateCurrencySettings(value, currencySettings.locale)}
+                onValueChange={(value) => updateCurrencySettings('currency', value)}
               >
                 <SelectTrigger>
                   <SelectValue placeholder={t('currency_settings.currency_selection')} />
