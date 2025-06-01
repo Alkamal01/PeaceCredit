@@ -255,5 +255,28 @@
     "updated": "Mis à jour avec succès",
     "deleted": "Supprimé avec succès",
     "created": "Créé avec succès"
+  },
+  "cooperatives": {
+    "title": "Coopératives",
+    "subtitle": "Rejoignez et gérez vos coopératives communautaires",
+    "search_placeholder": "Rechercher des coopératives...",
+    "create_coop": "Créer une Coopérative",
+    "your_active": "Vos Coopératives Actives",
+    "suggested": "Coopératives Suggérées",
+    "resources": "Ressources Coopératives",
+    "members": "membres",
+    "next_meeting": "Suivant",
+    "match": "Correspondance",
+    "chat": "Chat",
+    "learn_more": "En savoir plus",
+    "meeting_calendar": "Calendrier des Réunions",
+    "discussion_board": "Forum de Discussion",
+    "goals_progress": "Objectifs et Progrès",
+    "status_active": "Actif",
+    "status_open": "Ouvert à l'adhésion",
+    "type_craft": "Artisanat et Commerce",
+    "type_agriculture": "Agriculture",
+    "type_technology": "Technologie",
+    "type_energy": "Énergie"
   }
 } 

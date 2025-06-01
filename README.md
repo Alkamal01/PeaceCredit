@@ -4,7 +4,7 @@
 
 [![Demo](https://img.shields.io/badge/🎥_Live_Demo-Watch_Now-blue?style=for-the-badge)](YOUR_DEMO_LINK_HERE)
 [![Pitch Deck](https://img.shields.io/badge/📊_Pitch_Deck-View_Slides-green?style=for-the-badge)](YOUR_PITCH_DECK_LINK_HERE)
-[![Live App](https://img.shields.io/badge/🚀_Try_App-Live_Version-orange?style=for-the-badge)](YOUR_LIVE_APP_LINK_HERE)
+[![Live App](https://img.shields.io/badge/🚀_Try_App-Live_Version-orange?style=for-the-badge)](https://peace-credit.vercel.app/)
 
 ---
 

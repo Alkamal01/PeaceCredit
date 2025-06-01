@@ -242,5 +242,28 @@
     "updated": "An sabunta da nasara",
     "deleted": "An share da nasara",
     "created": "An kirkira da nasara"
+  },
+  "cooperatives": {
+    "title": "Kungiyoyin Haɗin Gwiwa",
+    "subtitle": "Shiga da sarrafa kungiyoyin haɗin gwiwa na al'umma",
+    "search_placeholder": "Nemi kungiyoyin haɗin gwiwa...",
+    "create_coop": "Kirkiro Kungiya",
+    "your_active": "Kungiyoyin Ku Masu Aiki",
+    "suggested": "Kungiyoyin da Aka Shawarce",
+    "resources": "Kayan Aikin Kungiya",
+    "members": "mambobi",
+    "next_meeting": "Na gaba",
+    "match": "Dacewa",
+    "chat": "Hira",
+    "learn_more": "Koyi Ƙari",
+    "meeting_calendar": "Kalandar Taro",
+    "discussion_board": "Allon Tattaunawa",
+    "goals_progress": "Maƙasudai da Ci gaba",
+    "status_active": "Mai Aiki",
+    "status_open": "Buɗe don Shiga",
+    "type_craft": "Sana'a da Kasuwanci",
+    "type_agriculture": "Noma",
+    "type_technology": "Fasaha",
+    "type_energy": "Makamashi"
   }
 } 

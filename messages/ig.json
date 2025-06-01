@@ -274,5 +274,28 @@
     "duration": "Ogologo Oge",
     "level": "Ọkwa",
     "organization": "Nzukọ"
+  },
+  "cooperatives": {
+    "title": "Ndị Otu Nkwekọrịta",
+    "subtitle": "Sonye ma jikwaa ndị otu nkwekọrịta obodo gị",
+    "search_placeholder": "Chọọ ndị otu nkwekọrịta...",
+    "create_coop": "Mepụta Otu",
+    "your_active": "Ndị Otu Gị Na-arụ Ọrụ",
+    "suggested": "Ndị Otu A Tụrụ Aro",
+    "resources": "Akụrụngwa Otu",
+    "members": "ndị otu",
+    "next_meeting": "Ọzọ",
+    "match": "Dakọtara",
+    "chat": "Nkata",
+    "learn_more": "Mụta Karịa",
+    "meeting_calendar": "Kalenda Nzukọ",
+    "discussion_board": "Bọọdụ Mkparịta Ụka",
+    "goals_progress": "Ebumnuche na Ọganihu",
+    "status_active": "Na-arụ Ọrụ",
+    "status_open": "Mepere maka Isonye",
+    "type_craft": "Nka na Azụmahịa",
+    "type_agriculture": "Ọrụ Ugbo",
+    "type_technology": "Teknụzụ",
+    "type_energy": "Ike"
   }
 } 

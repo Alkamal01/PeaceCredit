@@ -274,5 +274,28 @@
     "duration": "Iye Akoko",
     "level": "Ipele",
     "organization": "Ajo"
+  },
+  "cooperatives": {
+    "title": "Àwọn Ẹgbẹ Ifọwọsowọpọ",
+    "subtitle": "Darapọ mọ àti ṣakoso àwọn ẹgbẹ ifọwọsowọpọ agbegbe rẹ",
+    "search_placeholder": "Wa àwọn ẹgbẹ ifọwọsowọpọ...",
+    "create_coop": "Ṣẹda Ẹgbẹ",
+    "your_active": "Àwọn Ẹgbẹ Rẹ Ti o n Ṣiṣẹ",
+    "suggested": "Àwọn Ẹgbẹ Ti a Daba",
+    "resources": "Àwọn Ohun elo Ẹgbẹ",
+    "members": "àwọn ọmọ ẹgbẹ",
+    "next_meeting": "Tókàn",
+    "match": "Ibamu",
+    "chat": "Ibaraẹnisọrọ",
+    "learn_more": "Kọ Diẹ Sii",
+    "meeting_calendar": "Kalẹnda Ipade",
+    "discussion_board": "Pátákó Ijiroro",
+    "goals_progress": "Àwọn Ibi-afẹde ati Ilọsiwaju",
+    "status_active": "N Ṣiṣẹ",
+    "status_open": "Ṣiṣi fun Darapọ",
+    "type_craft": "Iṣẹ Ọnà ati Iṣowo",
+    "type_agriculture": "Ọgbin",
+    "type_technology": "Imọ-ẹrọ",
+    "type_energy": "Agbara"
   }
 } 

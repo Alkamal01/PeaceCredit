@@ -242,5 +242,28 @@
     "updated": "Imesasishwa kwa mafanikio",
     "deleted": "Imefutwa kwa mafanikio",
     "created": "Imeundwa kwa mafanikio"
+  },
+  "cooperatives": {
+    "title": "Ushirika",
+    "subtitle": "Jiunge na kusimamia ushirika wa jamii yako",
+    "search_placeholder": "Tafuta ushirika...",
+    "create_coop": "Unda Ushirika",
+    "your_active": "Ushirika Wako Unaofanya Kazi",
+    "suggested": "Ushirika Uliopendekezwa",
+    "resources": "Rasilimali za Ushirika",
+    "members": "wanachama",
+    "next_meeting": "Ifuatayo",
+    "match": "Ulinganifu",
+    "chat": "Mazungumzo",
+    "learn_more": "Jifunze Zaidi",
+    "meeting_calendar": "Kalenda ya Mikutano",
+    "discussion_board": "Bodi ya Majadiliano",
+    "goals_progress": "Malengo na Maendeleo",
+    "status_active": "Inaendelea",
+    "status_open": "Wazi kwa Kujiunga",
+    "type_craft": "Ufundi na Biashara",
+    "type_agriculture": "Kilimo",
+    "type_technology": "Teknolojia",
+    "type_energy": "Nishati"
   }
 } 

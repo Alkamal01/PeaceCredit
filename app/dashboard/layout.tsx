@@ -58,7 +58,7 @@ export default function DashboardLayout({
       icon: LayoutDashboard,
     },
     {
-      title: t('navigation.credit'),
+      title: t('navigation.my_credit'),
       href: "/dashboard/credit",
       icon: CreditCard,
     },
@@ -91,21 +91,6 @@ export default function DashboardLayout({
       title: "PeaceBot",
       href: "/dashboard/peacebot",
       icon: Bot,
-    },
-    {
-      title: "Messages",
-      href: "/dashboard/messages",
-      icon: MessageSquare,
-    },
-    {
-      title: t('navigation.settings'),
-      href: "/dashboard/settings",
-      icon: Settings,
-    },
-    {
-      title: t('navigation.help'),
-      href: "/dashboard/support",
-      icon: HelpCircle,
     },
   ]
 
