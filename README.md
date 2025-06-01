@@ -291,12 +291,6 @@ Our proprietary algorithm considers:
 - 📋 Insurance products
 - 📋 Investment opportunities
 
-## 👥 Team
-
-- **Lead Developer** - Full-stack development, blockchain integration
-- **UI/UX Designer** - User experience and interface design
-- **Data Scientist** - Credit scoring algorithm development
-- **Business Analyst** - Market research and strategy
 
 ## 🏆 Hackathon Submission
 
@@ -326,7 +320,6 @@ Special thanks to:
 - **Hackathon Organizers** for the opportunity
 - **Open Source Community** for amazing tools
 - **Beta Testers** for valuable feedback
-- **Advisory Board** for guidance and support
 
 ---
 
